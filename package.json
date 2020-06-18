@@ -1,0 +1,28 @@
+{
+  "name": "cbtc",
+  "version": "1.0.0",
+  "description": "## General Commands",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon Service/Main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-fetch": "^0.7.0",
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "cookie-session": "^1.4.0",
+    "cors": "^2.8.5",
+    "cron": "^1.8.2",
+    "express": "^4.17.1",
+    "http": "0.0.1-security",
+    "passport": "^0.4.1",
+    "passport-twitch": "^1.0.3",
+    "passport-twitch-token": "^3.0.0",
+    "passport-twitch.js": "0.0.9",
+    "tmi.js": "^1.5.0"
+  }
+}
