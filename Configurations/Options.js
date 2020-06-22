@@ -5,7 +5,7 @@ let users = ["#MuteBard"]
 exports.settings_A = {
   options : {
     debug : false,
-    clientId : env.TWITCH_CLIENT_ID || secret.security.TWITCH_CLIENT_ID
+    clientId : env.TWITCH_CLIENT_ID
   },
   connection: {
     reconnect: true,
@@ -13,7 +13,7 @@ exports.settings_A = {
   },
   identity: {
     username: "crossingbot_",
-    password: env.TWITCH_OAUTH ||  secret.security.TWITCH_OAUTH 
+    password: env.TWITCH_OAUTH
   },
   channels: users
 };
@@ -21,8 +21,8 @@ exports.settings_A = {
   
 exports.settings_B = {
   headers: {
-      "Client-ID": env.TWITCH_CLIENT_ID  || secret.security.TWITCH_CLIENT_ID,
+      "Client-ID": env.TWITCH_CLIENT_ID,
       "Accept" : "application/vnd.twitchtv.v5+json",
-      "Authorization" : env.ACCESS_TOKEN || secret.security.ACCESS_TOKEN
+      "Authorization" : env.ACCESS_TOKEN
   },
 }
