@@ -1,4 +1,3 @@
-// const env = require('dotenv').config().parsed;
 const headers = require('../Configurations/Options').settings_B.headers
 const BUG = "bug"  
 const FISH  = "fish" 

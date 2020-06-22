@@ -1,5 +1,3 @@
-// const env = require('dotenv').config().parsed;
-// let secret = require('./Secret');
 let users = ["#MuteBard"]
 console.log(require('dotenv').config())
 exports.settings_A = {
