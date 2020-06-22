@@ -13,11 +13,8 @@ app.use(bodyParser.json())
 router(app)
 
 // Server Setup
-console.log(process.env.PORT)
 const port = process.env.PORT || 4000
 const server = http.createServer(app);
 server.listen(port);
 console.log('Server listening on:', port)
 startBot()
-
-
