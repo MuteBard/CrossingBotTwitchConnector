@@ -11,10 +11,10 @@ const CBTC_DataBank = require('../FlashData/Bank')
 const process = require('../Service/ProcessData')
 
 console.log(process.env)
-let CBAS_BASEURL = process.env.URI || 'http://localhost:5000';  
+let CBAS_BASEURL = "https://crossing-bot-akka-server.herokuapp.com"
 
 const { createApolloFetch } = require('apollo-fetch');
-const fetch = createApolloFetch({ uri : `${CBAS_BASEURL}api/graphql` })
+const fetch = createApolloFetch({ uri : `${CBAS_BASEURL}/api/graphql` })
 
 //REST (server)
 exports.rest = (app) => {
