@@ -1,7 +1,8 @@
-const startBot = require('./CollectData').startBot
+require('dotenv').config();
 const express = require('express')
 const http = require('http')
 const bodyParser = require('body-parser')
+const startBot = require('./CollectData').startBot
 const router = require('../Controller/Route').rest
 const cors = require('cors')
 const app = express();
@@ -17,4 +18,5 @@ const server = http.createServer(app);
 server.listen(port);
 console.log('Server listening on:', port)
 startBot()
+
 

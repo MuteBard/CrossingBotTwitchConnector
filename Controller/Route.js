@@ -1,4 +1,3 @@
-const uri = 'http://localhost:5000/api/graphql'
 const headers = require('../Configurations/Options').settings_B.headers
 const BUG = "bug"  
 const FISH  = "fish" 
@@ -8,16 +7,20 @@ const Mutation = require('./Mutations')
 const minutes = require('../Cron/Timing').minutes
 const CBTC_DataBank = require('../FlashData/Bank')
 const process = require('../Service/ProcessData')
-// const duration = minutes(5)
-const { createApolloFetch } = require('apollo-fetch');
-const fetch = createApolloFetch({ uri })
 
-const pwOptions = 
+let CBAS_BASEURL = 'http://localhost:5000';
+if (window.location.hostname != 'localhost'){
+  BASEURL = '';
+}
+
+const { createApolloFetch } = require('apollo-fetch');
+const fetch = createApolloFetch({ uri : `${CBAS_BASEURL}/api/grapql` })
 
 //REST (server)
 exports.rest = (app) => {
     app.post('/authenticateUser', (req, res) => {
         let CBAS_Payload = {"username" : req.body.username }    
+        console.log("TEST A", CBAS_Payload) 
 
         /*
         Scenario 1 : User exists on Twitch and exists on CrossingBot DB and has a CrossingBot password
@@ -265,5 +268,5 @@ let queryUser = (CBAS_Payload, CBRC_Payload) => {
 
 let deleteUser = (CBAS_Payload) => {
     let mutation = Mutation.DELETE_USER(CBAS_Payload.username)
-    queryGraphQL(query, null)
+    queryGraphQL(mutation, null)
 }
