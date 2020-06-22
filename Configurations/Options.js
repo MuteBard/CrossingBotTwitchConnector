@@ -1,11 +1,11 @@
-const env = require('dotenv').config().parsed;
+// const env = require('dotenv').config().parsed;
 // let secret = require('./Secret');
 let users = ["#MuteBard"]
-console.log(env)
+console.log(require('dotenv').config())
 exports.settings_A = {
   options : {
     debug : false,
-    clientId : env.TWITCH_CLIENT_ID
+    clientId : process.env.TWITCH_CLIENT_ID
   },
   connection: {
     reconnect: true,
@@ -13,7 +13,7 @@ exports.settings_A = {
   },
   identity: {
     username: "crossingbot_",
-    password: env.TWITCH_OAUTH
+    password: process.env.TWITCH_OAUTH
   },
   channels: users
 };
@@ -21,8 +21,8 @@ exports.settings_A = {
   
 exports.settings_B = {
   headers: {
-      "Client-ID": env.TWITCH_CLIENT_ID,
+      "Client-ID": process.env.TWITCH_CLIENT_ID,
       "Accept" : "application/vnd.twitchtv.v5+json",
-      "Authorization" : env.ACCESS_TOKEN
+      "Authorization" : process.env.ACCESS_TOKEN
   },
 }

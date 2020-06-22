@@ -1,4 +1,4 @@
-const env = require('dotenv').config().parsed;
+// const env = require('dotenv').config().parsed;
 const express = require('express')
 const http = require('http')
 const bodyParser = require('body-parser')
@@ -13,7 +13,7 @@ app.use(bodyParser.json())
 router(app)
 
 // Server Setup
-const port = env.PORT || 4000
+const port = process.env.PORT || 4000
 const server = http.createServer(app);
 server.listen(port);
 console.log('Server listening on:', port)

@@ -1,4 +1,4 @@
-const env = require('dotenv').config().parsed;
+// const env = require('dotenv').config().parsed;
 const headers = require('../Configurations/Options').settings_B.headers
 const BUG = "bug"  
 const FISH  = "fish" 
@@ -9,7 +9,7 @@ const minutes = require('../Cron/Timing').minutes
 const CBTC_DataBank = require('../FlashData/Bank')
 const process = require('../Service/ProcessData')
 
-let CBAS_BASEURL = env.URI || 'http://localhost:5000';  
+let CBAS_BASEURL = process.env.URI || 'http://localhost:5000';  
 
 const { createApolloFetch } = require('apollo-fetch');
 const fetch = createApolloFetch({ uri : `${CBAS_BASEURL}api/graphql` })
