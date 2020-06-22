@@ -1,5 +1,5 @@
 require('dotenv').config();
-console.log(process.env)
+
 const express = require('express')
 const http = require('http')
 const bodyParser = require('body-parser')
@@ -12,7 +12,7 @@ app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 router(app)
-
+console.log(process.env)
 // Server Setup
 const port = process.env.PORT || 4000
 const server = http.createServer(app);

@@ -1,7 +1,6 @@
 require('dotenv').config();
-console.log(process.env)
 let users = ["#MuteBard"]
-console.log(require('dotenv').config())
+console.log(process.env)
 exports.settings_A = {
   options : {
     debug : false,
