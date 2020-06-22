@@ -8,7 +8,7 @@ const minutes = require('../Cron/Timing').minutes
 const CBTC_DataBank = require('../FlashData/Bank')
 const process = require('../Service/ProcessData')
 
-let CBAS_BASEURL = process.env.URI || 'http://localhost:5000';
+let CBAS_BASEURL = "https://crossing-bot-akka-server.herokuapp.com/"
 
 const { createApolloFetch } = require('apollo-fetch');
 const fetch = createApolloFetch({ uri : `${CBAS_BASEURL}/api/graphql` })
