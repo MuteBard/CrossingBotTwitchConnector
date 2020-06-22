@@ -10,18 +10,16 @@ const process = require('../Service/ProcessData')
 
 let CBAS_BASEURL = 'http://localhost:5000';
 if (window.location.hostname != 'localhost'){
-  BASEURL = '';
+    CBAS_BASEURL = 'https://crossing-bot-akka-server.herokuapp.com/';
 }
 
 const { createApolloFetch } = require('apollo-fetch');
-const fetch = createApolloFetch({ uri : `${CBAS_BASEURL}/api/grapql` })
+const fetch = createApolloFetch({ uri : `${CBAS_BASEURL}/api/graphql` })
 
 //REST (server)
 exports.rest = (app) => {
     app.post('/authenticateUser', (req, res) => {
         let CBAS_Payload = {"username" : req.body.username }    
-        console.log("TEST A", CBAS_Payload) 
-
         /*
         Scenario 1 : User exists on Twitch and exists on CrossingBot DB and has a CrossingBot password
         Scenario 2 : User exists on Twitch and exists on CrossingBot DB but does not have a CrossingBot password

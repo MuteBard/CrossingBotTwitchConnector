@@ -16,32 +16,19 @@ let startBot = () => {
 
 
 let setOptionsForConnection = () => {
-    options.settings_A["channels"] =  bank.usernames
+    // options.settings_A["channels"] =  bank.usernames
     var publicConnection = new tmi.Client(options.settings_A);  
-    var privateConnection = new tmi.Client(options.settings_A);  
     module.exports.publicConnection = publicConnection
-    connectToTwitch(publicConnection, privateConnection)  
+    connectToTwitch(publicConnection)  
 }
 
-let connectToTwitch = (publicConnection, privateConnection) => {
+let connectToTwitch = (publicConnection) => {
         
     var responseDictionary
     var creatureDictionary = {}
     var pendingTurnipTransactionDictionary = {}
     var timeDictionary = {}
 
-
-    privateConnection.connect().then(() => {
-        privateConnection.on('whisper', function(from, userstate, message, self) {
-            if (!self) {
-                console.log(from)
-                console.log(self)
-                console.log(message)
-                console.log(userstate.username)
-                privateConnection.whisper(from, "Pong " + userstate.username);
-            }
-        })
-    })
     
     setTimeout(() => {
         publicConnection.disconnect().then(() => {
