@@ -10,7 +10,6 @@ const process = require('../Service/ProcessData')
 
 let CBAS_BASEURL = process.env.URI || 'http://localhost:5000';
 
-
 const { createApolloFetch } = require('apollo-fetch');
 const fetch = createApolloFetch({ uri : `${CBAS_BASEURL}/api/graphql` })
 
