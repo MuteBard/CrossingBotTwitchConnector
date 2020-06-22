@@ -16,7 +16,7 @@ let startBot = () => {
 
 
 let setOptionsForConnection = () => {
-    // options.settings_A["channels"] =  bank.usernames
+    options.settings_A["channels"] = bank.usernames
     var publicConnection = new tmi.Client(options.settings_A);  
     module.exports.publicConnection = publicConnection
     connectToTwitch(publicConnection)  
