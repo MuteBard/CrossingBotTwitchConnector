@@ -1,5 +1,4 @@
 const tmi = require('tmi.js');
-
 const options = require('../Configurations/Options')
 const bank = require('../FlashData/Bank')
 const process = require('./processData')

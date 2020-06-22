@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 const express = require('express')
 const http = require('http')
 const bodyParser = require('body-parser')
@@ -12,9 +10,9 @@ app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 router(app)
-console.log(process.env)
+
 // Server Setup
-const port = process.env.PORT || 4000
+const port = process.env.PORT || 4000   
 const server = http.createServer(app);
 server.listen(port);
 console.log('Server listening on:', port)

@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 const headers = require('../Configurations/Options').settings_B.headers
 const BUG = "bug"  
 const FISH  = "fish" 
@@ -10,7 +8,6 @@ const minutes = require('../Cron/Timing').minutes
 const CBTC_DataBank = require('../FlashData/Bank')
 const process = require('../Service/ProcessData')
 
-console.log(process.env)
 let CBAS_BASEURL = "https://crossing-bot-akka-server.herokuapp.com"
 
 const { createApolloFetch } = require('apollo-fetch');
