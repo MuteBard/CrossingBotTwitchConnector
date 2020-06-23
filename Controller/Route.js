@@ -164,15 +164,7 @@ let createUser = async (username, calledByCBRC) => {
     //do a final mutation to the user and update those fields on the user
     setTimeout(() => {
         fetch({ query : mutation })
-        .then(CBAS_Response => {
-            console.log(CBAS_Response)
-            if(calledByCBRC && CBAS_Response.data.finalizeUserCreation == "Success"){
-                console.log(`User creation of ${username} is complete`)  
-            }
-            else if(CBAS_Response.data.finalizeUserCreation == "Success"){
-                console.log(`User creation of ${username} is complete`)
-            }
-        })
+        .then(CBAS_Response => console.log(`User creation of ${username} is complete`))
         .catch(error => console.log(error)) 
     }, 3000);
     return CBAS_Payload

@@ -1,3 +1,4 @@
+require('dotenv').config();
 let users = ["#MuteBard"]
 exports.settings_A = {
   options : {
