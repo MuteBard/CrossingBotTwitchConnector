@@ -28,12 +28,10 @@ exports.rest = (app) => {
             
             let i = 0;
             let intervalId = setInterval(() => { 
-                console.log(i)
                 //scenario 1
                 if(data.scenario == 1){
                     clearInterval(intervalId);
                     data["responded"] = true
-                    console.log("scenario 1")
                     res.send(data)
                 }
                 //scenario 2 and 3
@@ -41,7 +39,6 @@ exports.rest = (app) => {
                     clearInterval(intervalId);
                     process.sendMessageToTwitchUponInvite(req.body.username)
                     data["responded"] = true
-                    console.log("scenario 2 or 3")
                     res.send(data)
                 }
                 //scenario 4
@@ -50,14 +47,12 @@ exports.rest = (app) => {
                     data["responded"] = false
                     data["error"] = "You didnt type !invite on your stream"
                     deleteUser(CBAS_Payload)
-                    console.log("scenario 4")
                     res.send(data)
                 }
                 //scenario 5
                 else if(data.scenario == 5){
                     data["responded"] = false
                     data["error"] = "This username does not exist"
-                    console.log("scenario 5")
                     res.send(data)
                 }
                 i++
@@ -158,7 +153,6 @@ let createUser = async (username, calledByCBRC) => {
     let CBAS_Payload = {}
     CBAS_Payload["id"] = Number(Twitch_Response.data.data[0].id)
     CBAS_Payload["avatar"] = Twitch_Response.data.data[0].profile_image_url 
-    console.log(CBAS_Payload)
 
     var mutation = ""
     if (calledByCBRC){
