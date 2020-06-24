@@ -11,7 +11,6 @@ let respondToTwitch = (Twitch_Payload) =>{
 }
 
 exports.CBJoinChannel = (username) => {
-    console.log("B")
     maintainConnection.publicConnection.join(username)
 }
 

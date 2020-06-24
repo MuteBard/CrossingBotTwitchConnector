@@ -19,8 +19,8 @@ exports.rest = (app) => {
         let CBAS_Payload = {"username" : req.body.username }    
         /*
         Scenario 1 : User exists on Twitch and exists on CrossingBot DB and has a CrossingBot password
-        Scenario 2 : User exists on Twitch and exists on CrossingBot DB but does not have a CrossingBot password
-        Scenario 3 : User exists on Twitch but does not exist on CrossingBot DB and does not have a CrossingBot password
+        Scenario 2 : User exists on Twitch and exists on CrossingBot DB but does not have a CrossingBot password but user types !invite
+        Scenario 3 : User exists on Twitch but does not exist on CrossingBot DB and does not have a CrossingBot password but user types !invite
         Scenario 4 : Scenario 2 or Scenario 3 but user fails to type !invite
         Scenario 5 : User doesn not exist on Twitch
         */
@@ -29,7 +29,7 @@ exports.rest = (app) => {
             let i = 0;
             let intervalId = setInterval(() => { 
                 //scenario 1
-                if(data.scenario == 1){
+                if(data.scenario === 1){
                     clearInterval(intervalId);
                     data["responded"] = true
                     res.send(data)
@@ -42,7 +42,8 @@ exports.rest = (app) => {
                     res.send(data)
                 }
                 //scenario 4
-                else if(i > 300){
+                else if(i >= 59){
+                    clearInterval(intervalId);
                     data["scenario"] = 4
                     data["responded"] = false
                     data["error"] = "You didnt type !invite on your stream"
@@ -50,14 +51,15 @@ exports.rest = (app) => {
                     res.send(data)
                 }
                 //scenario 5
-                else if(data.scenario == 5){
+                else if(data.scenario === 5){
+                    clearInterval(intervalId);
                     data["responded"] = false
                     data["error"] = "This username does not exist"
                     res.send(data)
                 }
                 i++
                 
-             }, 1000);
+             }, 5000);
         }
 
         queryUser(CBAS_Payload, CBRC_Payload)
