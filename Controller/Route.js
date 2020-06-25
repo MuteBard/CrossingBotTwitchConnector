@@ -25,7 +25,7 @@ exports.rest = (app) => {
         Scenario 5 : User doesn not exist on Twitch
         */
         let CBRC_Payload = (data) => {
-            console.log(`[AUTHENTICATEUSER] : ${data}`)
+            console.log(`[AUTHENTICATEUSER] : { id : ${data.id}, avatar : ${data.avatar},  scenario : ${data.scenario} }`)
             let i = 0;
             let intervalId = setInterval(() => { 
                 //scenario 1
@@ -262,6 +262,7 @@ let queryUser = (CBAS_Payload, CBRC_Payload) => {
 
         }
     }).catch(error =>{
+        console.log(`[QUERYUSER - FAILED] : Fetch failed`)
         console.log(error)
     })  
 }
