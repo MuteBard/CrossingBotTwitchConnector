@@ -1,5 +1,7 @@
 # Crossing Bot Twitch Connector (CBTC)
 
+[Link to CrossingBot website](https://www.crossingbot.com/)
+
 ![](https://cdn.discordapp.com/attachments/685583064885100568/719665723986804793/crossingbotv1.png)
 
 ## General Commands

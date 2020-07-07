@@ -22,7 +22,7 @@ exports.rest = (app) => {
         Scenario 2 : User exists on Twitch and exists on CrossingBot DB but does not have a CrossingBot password but user types !invite
         Scenario 3 : User exists on Twitch but does not exist on CrossingBot DB and does not have a CrossingBot password but user types !invite
         Scenario 4 : Scenario 2 or Scenario 3 but user fails to type !invite
-        Scenario 5 : User doesn not exist on Twitch
+        Scenario 5 : User doesn't not exist on Twitch
         */
         let CBRC_Payload = (data) => {
             console.log(`[AUTHENTICATEUSER] : { id : ${data.id}, avatar : ${data.avatar},  scenario : ${data.scenario} }`)
