@@ -33,3 +33,25 @@
 - **!confirm** Allows for execution of a turnip transaction
 
 - **!cancel** Allows for termination of a turnip transaction
+
+## How It Works
+
+### Main.js
+
+The application and server is started up here by calling CollectData.js
+
+### CollectData.js
+
+User commands are received and filtered in CollectData.js and some commands have additional validation to ensure that users are not entering bad data. Data from
+Option.js and Bank.js are supplied to CollectData.js to populate key collections.
+Once a command is successfully filtered, it goes to its corresponding function A in
+ProcessData.js
+
+### ProcessData.js
+
+General function A sends an object of parameter values and callback function C to a corresponding function B in Route.js. Once it receives data from function B in Route.js, callback function C is responsible for formatting that data for a response on the user's twitch channel. ProcessData.js is also responsible for updating Bank.js periodically.
+
+### Route.js
+
+General function B's parameters provide data for GraphQL Queries and mutations and callback way to send data back to ProcessData.js function C. It imports connection data from Option.js and Query.js and Mutation.js string schemas. Here CBTC communicates with CBAS through GraphQL and performs several operations that valid data is returned back to function C.
+It also makes several unique calls to Twitch to get id and avatar data and responds to a single REST route call from CBRC to verify that users are who they say they are upon sign up on CBRC
